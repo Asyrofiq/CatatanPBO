@@ -1,0 +1,264 @@
+bilA = int(input("masukkan bilangan ke1 :"))
+bilB = int(input("masukkan bilangan ke2 :"))
+
+#print ('%d' %(bil1))
+i = 0
+while i < bilB:
+    print(bilA, end='')
+    i+=1
+    
+    ###################
+    ###################
+    #inhertitance
+    
+    class Barang:
+    def __init__(self, Nama, Harga, Diskon):
+        self.Nama = Nama
+        self.Harga = Harga
+        self.Diskon = Diskon
+
+    def TampilNama(self):
+        raise NotImplementedError("Sublass must implemented")
+
+    def TampilHarga(self):
+        raise NotImplementedError("Sublass must implemented")
+
+    def TampilDiskon(self):
+        raise NotImplementedError("Sublass must implemented")
+
+
+class Makanan(Barang):
+    def __init__(self, Nama, Harga, Diskon, ExDate):
+        super().__init__(Nama, Harga, Diskon)
+        self.ExDate = ExDate
+
+    def TampilNama(self):
+        print("Nama Makanan:", self.Nama)
+
+    def TampilHarga(self):
+        print("Harga Makanan:", self.Harga)
+
+    def TampilDiskon(self):
+        print("Diskon Makanan:", self.Diskon)
+
+    def TampilKhusus(self):
+        print("Expired Date:", self.ExDate)
+
+
+class Pakaian(Barang):
+    def __init__(self, Nama, Harga, Diskon, Ukuran):
+        super().__init__(Nama, Harga, Diskon)
+        self.Ukuran = Ukuran
+
+    def TampilNama(self):
+        print("Nama Pakaian:", self.Nama)
+
+    def TampilHarga(self):
+        print("Harga Pakaian:", self.Harga)
+
+    def TampilDiskon(self):
+        print("Diskon Pakaian:", self.Diskon)
+
+    def TampilKhusus(self):
+        print("Ukuran Pakaian:", self.Ukuran)
+class Makanan2:
+    def __init__(self, Nama, Harga, Diskon, ExDate):
+        self.Nama = Nama
+        self.Harga = Harga
+        self.Diskon = Diskon
+        self.ExDate = ExDate
+
+    def TampilNama(self):
+        print("Nama Makanan:", self.Nama)
+
+    def TampilHarga(self):
+        print("Harga Makanan:", self.Harga)
+
+    def TampilDiskon(self):
+        print("Diskon Makanan:", self.Diskon)
+
+    def TampilKhusus(self):
+        print("Expired Date:", self.ExDate)
+        print("=============^_^================")
+
+class Pakaian2:
+    def __init__(self, Nama, Harga, Diskon, Ukuran):
+        self.Nama = Nama
+        self.Harga = Harga
+        self.Diskon = Diskon
+        self.Ukuran = Ukuran
+
+    def TampilNama(self):
+        print("Nama Pakaian:", self.Nama)
+
+    def TampilHarga(self):
+        print("Harga Pakaian:", self.Harga)
+
+    def TampilDiskon(self):
+        print("Diskon Pakaian:", self.Diskon)
+
+    def TampilKhusus(self):
+        print("Ukuran Pakaian:", self.Ukuran)
+        print("=============^_^================")
+
+
+def in_market(Benda):
+    Benda.TampilNama()
+    Benda.TampilHarga()
+    Benda.TampilDiskon()
+    Benda.TampilKhusus()
+
+
+LontongBalap = Makanan2("Lontong Balap", "Rp.50.000", "50%", "06 Oktober 2018")
+Baju = Pakaian2("Baju", "Rp.175.000", "50%", "M")
+in_market(LontongBalap)
+in_market(Baju)
+
+#######################################
+#example inheritance
+
+class person:
+    def _init_(self,first,last):
+        self.firstname=first
+        selt.firsrname=last
+    def Name(self):
+        return self.firstname+""+self.lastname
+class Employee(person):
+    def _init_(self,first,last,staffnum):
+        person._init_(self,first,last)      
+        self.staffnumber = staffnum
+    def GetEmployee(self):
+        return Name()+","+self.staffnumber
+    x = Person("Marge","Simpson")
+    x = Employee("Homer","Simpson","1007")
+    print(x.Name())
+    print(y.GetEmployee())
+
+##########################################
+#Encapsulation
+
+class Pegawai:
+	def __init__(self):
+		self.__Status()
+		
+        def Alamat(self):
+            print("Alamat")
+
+        def __UbahKTP(self):
+            print("Status Menjadi")
+            
+Ahmad = Pegawai()
+Ahmad.Alamat()
+Ahmad._Pegawai_Status()
+#########################################
+
+#Overloading
+class poin:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    #def __str__(self):
+        #   return"((0),(1))".format(self.x self.y)
+    def __str__(self):
+        return "Poin object is at:"(+str(self.x)+","+str(self.y))
+
+
+    def __add__(self, other):
+        x = self.x + other.x
+        y = self.y + other.y
+        return poin(x,y)
+    p1 = poin(2,3)
+    p2 = poin(1,2)
+    print(p1 + p2)
+########################################
+#Polymorephsym
+class Bear(object):
+    def sound(self):
+        print("Ghroooaar")
+class Dog(object):
+    def sound(self):
+        print ("woof woof")
+def makesound(typeanimal):
+    typeanimal.sound()
+    
+bearobj = Bear()
+dogobj= Dog()
+
+makesound = (bearobj)
+makesound = (dogobj)
+
+##Polymorphysm
+########################################
+
+#inheritanceOverreading
+class Segitiga:
+    def _init_(self, jumlahsisi='3', bentuksegitiga ='sembarang'):
+        self.jumlahsisi = jumlahsisi 
+        self.bentuksegitiga = bentuksegitiga 
+    def pn(self):
+        print ("jumlahsisi",self.jumlahsisi)
+        print ("bentuksegi",self.bentuksegitiga)
+        
+class Segitigasamasisi(Segitiga):
+    def _init_(self, jumlahsisi, bentuksegitiga = "samasisi")
+        self.jumlahsisi = jumlahsisi 
+        self.bentuksegitiga = bentuksegitiga 
+
+a = Segitiga
+a.pn()
+
+b = Segitigasamasisi
+b.pn()
+############################################
+#overriding_inheritance
+class Fish:
+    def _init_(self, firsname, lastname="Fish",skeleton="bone",eyelids=False):
+        self.firsname = firsname
+        self.lastname  = lastname
+        self.skeleton = skeleton 
+        self.eyelids = eyelids 
+    def swim(self):
+        print ("the Fish is swiming.")
+    def swimbackward(self):
+         print ("the Fish can swim backward.")
+    
+class shark(Fish):
+    def _init_(self, firsname, lastname = "Shark", skeleton ="carlidge", eyelids = True):
+        self.firsname = firsname
+        self.lastname  = lastname
+        self.skeleton = skeleton 
+        self.eyelids = eyelids
+    def swimbackward(self):
+         print ("the shark cannot swim backward, but can sink backward")
+
+hiu = shark("hiu besar")
+hiu.swim = backward()
+######################################
+#inheritance
+
+class User:
+    name=""
+    def _init_(self,name):
+        self.name = name 
+
+    def printname(self)
+        print("Name =" + self.name)
+    
+class Programer(User):
+    def _init_(self,lastName):
+        self.lastName = lastName
+    def printlastname(self)
+        print ("Name = " + self.name)
+    def Python(self):
+    print ("programing python")
+brian = User (brian)
+brian.printname()
+
+diana = User("lady")
+diana.printname()
+diana.defPython()
+
+diana = programer("diana")
+diana.printname()
+diana.printlastname()
